@@ -53,7 +53,7 @@ class App extends Component {
           </Grid.Row>
           <Grid.Row columns={1}>
             <Grid.Column>
-            <Dimmer.Dimmable blurring dimmed={this.state.addingItem}>
+            <Dimmer.Dimmable dimmed={this.state.addingItem}>
               <Dimmer active={this.state.addingItem} />
                 <SearchContainer searchTerm={this.state.searchTerm} />
               </Dimmer.Dimmable>
