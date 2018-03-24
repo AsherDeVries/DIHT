@@ -1,8 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Input } from 'semantic-ui-react';
 
 const SearchBar = (props) => {
   return (
-    <input type="text" onChange={(event) => props.onChange(event.target.value)} />
+    <Input 
+      disabled={props.disabled}
+      fluid
+      focus
+      placeholder='Zoek op titel'
+      onChange={(event) => props.onChange(event.target.value)}
+      icon="search"
+    />
   )
 }
 
