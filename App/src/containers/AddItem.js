@@ -1,24 +1,40 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
-import Divider from 'semantic-ui-react/dist/commonjs/elements/Divider/Divider';
+import { Form, Grid } from 'semantic-ui-react'
+
+const options = [
+  { key: 'k', text: 'Kinder dvd', value: 'kidsDvd' },
+  { key: 's', text: 'Film', value: 'movie' },
+]
 
 export default class AddItem extends Component {
-    state = {}
+  state = {
+    title: "",
+    year: "",
+    type: ""
+  }
 
-    handleChange = (e, { value }) => this.setState({ value })
+  handleTitleChange = (e, { value }) => this.setState({ title: value })
+  handleYearChange = (e, { value }) => this.setState({ year: value })
+  handleTypeChange = (e, { value }) => this.setState({ type: value })
 
-    render() {
-        const { value } = this.state
-        return (
-            <div>
-                <Form>
-                    <Form.Group>
-                        <Form.Input width={3} fluid label='Movie title' placeholder='Movie title' />
-                        <Form.Input width={2} fluid label='Year' placeholder='Year' />
-                        <Form.Button>Submit</Form.Button>
-                    </Form.Group>
-                </Form>
-            </div>
-        )
-    }
+  onSubmit = e => {
+    e.preventDefault();
+
+    console.log(this.state)
+  }
+
+  render() {
+    return (
+      <div>
+        <Form widths="equal" onSubmit={this.onSubmit}>
+          <Form.Group>
+            <Form.Input required label='Titel' placeholder='Titel' onChange={this.handleTitleChange} />
+            <Form.Input label='Jaar' placeholder='Jaar' onChange={this.handleYearChange} />
+            <Form.Select required label='Soort' options={options} placeholder='Soort' onChange={this.handleTypeChange} />
+          </Form.Group>
+          <Form.Button >Submit</Form.Button>
+        </Form>
+      </div>
+    )
+  }
 }
