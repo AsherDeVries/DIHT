@@ -1,6 +1,7 @@
 import axios from 'axios';
+import config from '../config/server-url.json';
 
-const url = 'http://localhost:3001';
+const url = config.serverurl;
 
 export const getMedia = () => {
     const filteredUrl = `${url}/media`
