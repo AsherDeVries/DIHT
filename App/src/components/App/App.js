@@ -38,7 +38,7 @@ class App extends Component {
               <SearchBar disabled={this.state.addingItem} onChange={this.handleOnInputChange.bind(this)}/>
             </Grid.Column>
             <Grid.Column width={6}>
-              <AddItemButton onClick={() => this.setAddingItemState()} />
+              <AddItemButton addingItem={this.state.addingItem} onClick={() => this.setAddingItemState()} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
