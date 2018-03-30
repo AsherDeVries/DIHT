@@ -5,7 +5,7 @@ import AddItemComponent from '../components/Item/AddItem';
 export default class AddItem extends Component {
   render() {
     return (
-        <AddItemComponent visible={this.props.visible}/>
+        <AddItemComponent onSubmitHandler={this.props.onSubmitHandler} visible={this.props.visible}/>
     )
   }
 }

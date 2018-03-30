@@ -19,8 +19,7 @@ export default class AddItem extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
-    console.log(this.state)
+    this.props.onSubmitHandler()
   }
 
   render() {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Divider, Grid, Dimmer } from 'semantic-ui-react';
+import { Divider, Grid, Dimmer, Icon } from 'semantic-ui-react';
 
 import './App.css';
 import AddItemContainer from '../../containers/AddItem';
@@ -30,6 +30,7 @@ class App extends Component {
           <Grid.Row columns={1}>
             <Grid.Column>
               <h1 className="App-title">Do I Have This?</h1>
+              <Icon name="video camera" size="big"/>
             </Grid.Column>
           </Grid.Row>
 
@@ -48,7 +49,7 @@ class App extends Component {
         <Grid>
           <Grid.Row columns={1}>
             <Grid.Column>
-              <AddItemContainer visible={this.state.addingItem} />
+              <AddItemContainer onSubmitHandler={() => this.setAddingItemState()} visible={this.state.addingItem} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row columns={1}>
