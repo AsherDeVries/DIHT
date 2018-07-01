@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { List } from 'semantic-ui-react';
+import MovieListItem from './MovieListItem';
 
-const MovieList = () => {
-  return (
-    <div>
-      <p>I AM SOME MOVIELIST</p>
-    </div>
-  );
-};
+export default class MovieList extends Component {
 
-export default MovieList;
+  renderListItems() {
+    return this.props.movies.map(movie => {
+      return (
+        <MovieListItem
+          key={movie.name}
+          movie={movie}
+          showRating={this.props.showRating}
+          markable={this.props.markable}
+        />
+      );
+    });
+  }
+
+  render() {
+    return (
+      <List relaxed divided size="huge">
+        {this.renderListItems()}
+      </List>
+    );
+  }
+}

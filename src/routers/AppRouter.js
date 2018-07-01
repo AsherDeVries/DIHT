@@ -2,25 +2,29 @@
 
 import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
 
 // IMPORT PROJECT REFERENCES
 
-// import { Header } from '../Header/Header';
+import Header from '../components/Header';
 import HomePage from '../components/HomePage';
-import MovieList from '../components/shared/MovieList';
+import HaveItemsContainer from '../containers/HaveItemsContainer';
+import WishlistContainer from '../containers/WishlistContainer';
 
 // COMPONENT
 
 export const AppRouter = () => (
   <BrowserRouter>
     <Fragment>
-      {/* <Header /> */}
-      <Switch>
-        <Route path='/' component={HomePage} exact={true} />
-        <Route path='/movies' component={MovieList} />
-        <Route path='/whishlist' component={MovieList} />
-        <Redirect to="/" />
-      </Switch>
+      <Header />
+      <Container>
+        <Switch>
+          <Route path='/' component={HomePage} exact={true} />
+          <Route path='/movies' component={HaveItemsContainer} />
+          <Route path='/wishlist' component={WishlistContainer} />
+          <Redirect to="/" />
+        </Switch>
+      </Container>
     </Fragment>
   </BrowserRouter>
 );
